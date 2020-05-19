@@ -98,6 +98,10 @@ set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
+" Clang-Format
+let g:clang_format#detect_style_file = 1
+let g:clang_format#enable_fallback_style = 0
+
 " =============================================================================
 " # Editor settings
 " =============================================================================
@@ -188,7 +192,7 @@ set diffopt+=algorithm:patience
 set diffopt+=indent-heuristic
 set colorcolumn=80 " and give me a colored column
 set showcmd " Show (partial) command in status line.
-set mouse=a " Enable mouse usage (all modes) in terminals
+set mouse= " Disables mouse usage (all modes) in terminals
 set shortmess+=c " don't give |ins-completion-menu| messages.
 
 " Show those damn hidden characters
@@ -276,10 +280,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-" Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
 
 " Move by line
 nnoremap j gj
@@ -398,7 +398,6 @@ if has("autocmd")
 endif
 
 " Follow Rust code style rules
-au Filetype rust source ~/.config/nvim/scripts/spacetab.vim
 au Filetype rust set colorcolumn=100
 
 " Help filetype detection
@@ -409,8 +408,8 @@ autocmd BufRead *.tex set filetype=tex
 autocmd BufRead *.trm set filetype=c
 autocmd BufRead *.xlsx.axlsx set filetype=ruby
 
-" Script plugins
-autocmd Filetype html,xml,xsl,php source ~/.config/nvim/scripts/closetag.vim
+" s2n project configs
+autocmd BufRead */s2n/* source ~/.config/nvim/scripts/s2n.vim
 
 " =============================================================================
 " # Footer
