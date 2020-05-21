@@ -35,6 +35,9 @@ Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" Git plugin
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " deal with colors
