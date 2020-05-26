@@ -383,6 +383,8 @@ noremap <leader>m ct_
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" Use Esc to exit terminal
+tnoremap <Esc> <C-\><C-n>
 
 " =============================================================================
 " # Autocommands
