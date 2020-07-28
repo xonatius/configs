@@ -48,11 +48,17 @@ if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
   " screen does not (yet) support truecolor
   set termguicolors
 endif
+
+" highlights tailing whitespaces
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
 set background=dark
 let base16colorspace=256
 let g:base16_shell_path="~/.base16-manager/chriskempson/base16-shell/"
 colorscheme base16-gruvbox-dark-hard
 syntax on
+
 "hi Normal ctermbg=NONE
 " Brighter comments
 call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
@@ -255,6 +261,7 @@ noremap <leader>c :w !xsel -ib<cr><cr>
 
 " <leader>s for Rg search
 noremap <leader>s :Rg
+noremap <leader>g :Rg expand('<cword>')
 let g:fzf_layout = { 'down': '~20%' }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(

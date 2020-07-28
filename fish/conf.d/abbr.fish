@@ -21,4 +21,12 @@ else
 	abbr -a lll 'ls -la'
 end
 
+if command -v rg > /dev/null
+    abbr -a ag 'rg'
+else if command -v ag > /dev/null
+    abbr -a rg 'ag'
+end
 
+if command -v brazil-build > /dev/null
+    abbr -a bb 'brazil-build'
+end
